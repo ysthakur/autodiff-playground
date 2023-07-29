@@ -1,10 +1,10 @@
-(ns autodiff-playground.forward)
+(ns autodiff-playground.symbolic)
 
 (defprotocol Expr
   (eval-expr [expr ctx])
   (differentiate [expr ctx var]))
 
-(defn autodiff [expr ctx var]
+(defn symbolic-diff [expr ctx var]
   (let [derivative (differentiate expr ctx var)]
     (eval-expr derivative ctx)))
 
